@@ -1,0 +1,19 @@
+spring: # 여러 설정이 필요한 경우에는 properties보다 yml이 편리함.
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop;
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create # 테이블 자동 생성. 실행되면 기존에 있던 엔티티들 지우고 다시 테이블 생성함.
+    properties:
+      hibernate:
+#        show_sql: true  ==> system.out.println으로 출력
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug # ==> 로거로 출력! 하이버네이트가 생성하는 sql을 debug level로 로깅
+    org.hibernate.type: trace # ==> 쿼리 파라미터를 찍어줌.
