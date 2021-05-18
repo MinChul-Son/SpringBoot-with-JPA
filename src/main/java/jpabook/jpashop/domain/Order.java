@@ -17,14 +17,14 @@ public class Order {
     @Column(name = "order_id") // 칼럼과 매핑
     private Long id;
 
-    @ManyToOne // 항상 1:N 관계에서 N(다)쪽에 외래키(FK)가 있고 양방향 연관관계의 주인이다.
+    @ManyToOne(fetch = FetchType.LAZY) // 항상 1:N 관계에서 N(다)쪽에 외래키(FK)가 있고 양방향 연관관계의 주인이다.
     @JoinColumn(name = "member_id")
     private Member member;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
