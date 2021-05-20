@@ -1,6 +1,7 @@
 package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Member;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -8,10 +9,11 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor // 스프링 데이터 jpa에서 엔티티 메니저를 생성자 주입으로 넣을 수 있게 지원해줌.
 public class MemberRepository {
 
-    @PersistenceContext // 엔티티 매니저 주입
-    private EntityManager em;
+//    @PersistenceContext // 엔티티 매니저 주입
+    private final EntityManager em;
 
     public void save(Member member) {
         em.persist(member);
