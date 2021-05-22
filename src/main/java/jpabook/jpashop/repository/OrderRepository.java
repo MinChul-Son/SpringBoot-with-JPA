@@ -65,7 +65,7 @@ public class OrderRepository {
     }
 
     /**
-     * JPA Criteria ==> JPA가 제공하는 동적쿼리 작성 방식 ==> 잘 안씀, 유지보수 거의 불가능.. 
+     * JPA Criteria ==> JPA가 제공하는 동적쿼리 작성 방식 ==> 잘 안씀, 유지보수 거의 불가능..
      * Querydsl 제일 많이 사용함.
      * 공부할 꺼 하나 또 추가 ==> Querydsl
      */
