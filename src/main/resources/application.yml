@@ -7,7 +7,7 @@ spring: # 여러 설정이 필요한 경우에는 properties보다 yml이 편리
 
   jpa:
     hibernate:
-      ddl-auto: none # 테이블 자동 생성. 실행되면 기존에 있던 엔티티들 지우고 다시 테이블 생성함.
+      ddl-auto: create # 테이블 자동 생성. 실행되면 기존에 있던 엔티티들 지우고 다시 테이블 생성함.
     properties:
       hibernate:
 #        show_sql: true  ==> system.out.println으로 출력
