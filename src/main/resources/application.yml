@@ -16,4 +16,4 @@ spring: # 여러 설정이 필요한 경우에는 properties보다 yml이 편리
 logging:
   level:
     org.hibernate.SQL: debug # ==> 로거로 출력! 하이버네이트가 생성하는 sql을 debug level로 로깅
-    org.hibernate.type: trace # ==> 쿼리 파라미터를 찍어줌.
+#    org.hibernate.type: trace # ==> 쿼리 파라미터를 찍어줌.
