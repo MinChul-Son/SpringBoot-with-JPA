@@ -95,4 +95,11 @@ public class OrderRepository {
         TypedQuery<Order> query = em.createQuery(cq).setMaxResults(1000);
         return query.getResultList();
     }
+
+    public List<Order> findAllWithMemberDelivery() { // LAZY를 무시하고 member와 delivery를 join을 통해 한번에 값을 가져옴.
+        return em.createQuery("select o from Order o" +
+                " join fetch o.member m" +
+                " join fetch o.delivery d", Order.class
+        ).getResultList();
+    }
 }
