@@ -51,6 +51,16 @@ public class OrderApiController {
         return collect;
     }
 
+    @GetMapping("/api/v3.1/orders")
+    public List<OrderDto> ordersV3_page() {
+        List<Order> orders = orderRepository.findAllWithMemberDelivery(); // ToOne 관계는 페이징에 영향을 주지 않으므로 fetch join 사용
+
+        List<OrderDto> collect = orders.stream()
+                .map(o -> new OrderDto(o))
+                .collect(Collectors.toList());
+        return collect;
+    }
+
     @Getter
     static class OrderDto {
 

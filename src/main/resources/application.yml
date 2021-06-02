@@ -12,6 +12,7 @@ spring: # 여러 설정이 필요한 경우에는 properties보다 yml이 편리
       hibernate:
 #        show_sql: true  ==> system.out.println으로 출력
         format_sql: true
+        default_batch_fetch_size: 100
 
 logging:
   level:
