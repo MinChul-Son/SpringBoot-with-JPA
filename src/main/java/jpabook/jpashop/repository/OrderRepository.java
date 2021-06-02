@@ -103,7 +103,7 @@ public class OrderRepository {
                 " join fetch o.delivery d", Order.class
         ).getResultList();
     }
-// github 테스트!
+
     public List<Order> findAllWithItem() {
         return em.createQuery(
                 "select distinct o from Order o" +
