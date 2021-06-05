@@ -65,4 +65,16 @@ public class OrderQueryRepository {
         return result; // v4는 루프를 돌때마다 쿼리를 날림, v5는 쿼리를 한번 날려 모두 가져온 뒤에 메모리에서 매칭을 하여 값을 세팅
 
     }
+
+    public List<OrderFlatDto> findAllByDto_flat() {
+        return em.createQuery(
+                "select new " +
+                        " jpabook.jpashop.repository.order.query.OrderFlatDto(o.id, m.name, o.orderDate, o.status, d.address, i.name, oi.orderPrice, oi.count)" +
+                        " from Order o " +
+                        " join o.member m " +
+                        " join o.delivery d " +
+                        " join o.orderItems oi" +
+                        " join oi.item i", OrderFlatDto.class)
+                .getResultList();
+    }
 }
